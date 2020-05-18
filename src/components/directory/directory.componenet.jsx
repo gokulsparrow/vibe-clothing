@@ -10,35 +10,35 @@ class Directory extends React.Component {
         this.state = {
             sections: [{
               title: 'hats',
-              imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+              imageUrl: 'https://images.pexels.com/photos/35185/hats-fedora-hat-manufacture-stack.jpg?cs=srgb&dl=brown-fedora-hat-in-selective-focus-photography-35185.jpg&fm=jpg',
               id: 1,
-              //linkUrl: 'shop/hats'
+              linkUrl: 'hats'
             },
             {
               title: 'jackets',
-              imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+              imageUrl: 'https://images.pexels.com/photos/1336873/pexels-photo-1336873.jpeg?cs=srgb&dl=assorted-cloth-lot-1336873.jpg&fm=jpg',
               id: 2,
-              //linkUrl: 'shop/jackets'
+              linkUrl: '/jackets'
             },
             {
               title: 'sneakers',
-              imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+              imageUrl: 'https://images.pexels.com/photos/2300334/pexels-photo-2300334.jpeg?cs=srgb&dl=three-unpaired-multicolored-leather-sneakers-on-display-2300334.jpg&fm=jpg',
               id: 3,
-              //linkUrl: 'shop/sneakers'
+              linkUrl: '/sneakers'
             },
             {
               title: 'womens',
-              imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+              imageUrl: 'https://images.pexels.com/photos/291762/pexels-photo-291762.jpeg?cs=srgb&dl=adult-beautiful-elegant-eyewear-291762.jpg&fm=jpg',
               size: 'large',
               id: 4,
-              //linkUrl: 'shop/womens'
+              linkUrl: ' /womens'
             },
             {
               title: 'mens',
-              imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+              imageUrl: 'https://images.pexels.com/photos/1337477/pexels-photo-1337477.jpeg?cs=srgb&dl=man-holding-jacket-1337477.jpg&fm=jpg',
               size: 'large',
               id: 5,
-              //linkUrl: 'shop/mens'
+              linkUrl: '/mens'
             }]
         };
     }
@@ -46,8 +46,8 @@ class Directory extends React.Component {
     render() {
         return (
             <div className='directory-menu'>
-                {this.state.sections.map(({title, imageUrl, id, size}) => (
-                    <Menuitem key={id} title={title} imageUrl={imageUrl} size={size} />
+                {this.state.sections.map(({id, ...otherSectionProps}) => (
+                    <Menuitem key={id} {...otherSectionProps} />
                 ))}
             </div>
         );
