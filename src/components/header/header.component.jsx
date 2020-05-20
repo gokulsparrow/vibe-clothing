@@ -9,8 +9,14 @@ const HeaderComponend = () => (
             <Logo className='logo'/>
         </Link>
         <div className='options'>
+            <Link className='option' to='/'>
+                <h3>HOME</h3>
+            </Link>
             <Link className='option' to='/shop'>
                 <h3>SHOP</h3>
+            </Link>
+            <Link className='option' to='/signin'>
+                <h3>SIGN IN</h3>
             </Link>
             <Link className='option' to='/contact'>
                 <h3>CONTACT</h3>
