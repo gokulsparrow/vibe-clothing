@@ -4,7 +4,7 @@ import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component.jsx';
 import SignInandSignUp from './pages/sign-in-sign-up/sign-in-and-sign-up-component';
 import { Switch,Route } from 'react-router-dom';
-import { auth } from './Firebase/firebase.utils';
+import { auth,createUserProfileDocument } from './Firebase/firebase.utils';
 
 import './App.css';
 
@@ -18,10 +18,22 @@ class App extends React.Component {
     };
   }
   componentDidMount(){
-    this.unsubscribFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
+    this.unsubscribFromAuth = auth.onAuthStateChanged( async usersAuth => {
+      if (usersAuth) {
+        const userRef = await createUserProfileDocument(usersAuth);
 
-      console.log(user);
+        userRef.onSnapshot(Snapshot => {
+          this.setState({
+            currentUser: {
+              id: Snapshot.id,
+              ...Snapshot.data()
+            }
+          });
+          console.log(this.State);
+        });
+      }
+      
+      this.setState({currentUser: usersAuth});
     });
   }
 
