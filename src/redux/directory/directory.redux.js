@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    sections: [{
+    sections: [
+      {
         title: 'hats',
         imageUrl: 'https://images.pexels.com/photos/35185/hats-fedora-hat-manufacture-stack.jpg?cs=srgb&dl=brown-fedora-hat-in-selective-focus-photography-35185.jpg&fm=jpg',
         id: 1,
@@ -34,9 +35,9 @@ const INITIAL_STATE = {
 };
 
 const directoryReducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
-      default:
-          return state;
+  switch (action.type) {
+    default:
+        return state;
   }
 };
 

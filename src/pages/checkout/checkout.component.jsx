@@ -28,6 +28,7 @@ const CheckoutPage = ({ cartItems, total }) => (
           <span>Remove</span>
         </div>
       </div>
+      console.log(cartItems, total);
       {cartItems.map(cartItem => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}

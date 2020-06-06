@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import  CollectionItem  from '../../components/checkout-item/checkout-item';
+import CollectionItem  from '../../components/collection-items/collection-item';
 
 import { selectCollection } from '../../redux/shop/shop.selector';
 
@@ -9,6 +9,7 @@ import './collection.styles.scss';
 
 const CollectionPage = ({ collection }) => {
   const { title, items } = collection;
+  console.log(collection);
   return (
     <div className='collection-page'>
       <h2 className='title'>{title}</h2>
@@ -21,8 +22,9 @@ const CollectionPage = ({ collection }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = ( state, ownProps ) => ({
   collection: selectCollection(ownProps.match.params.collectionId)(state)
 });
 
 export default connect(mapStateToProps)(CollectionPage);
+
